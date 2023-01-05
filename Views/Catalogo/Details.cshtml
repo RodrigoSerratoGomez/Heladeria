@@ -1,0 +1,56 @@
+@model HeladeriaTAMS.Models.Producto
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="~/css/catalogo.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani&family=Sacramento&display=swap" rel="stylesheet">
+  <title>Contacto</title>
+</head>
+
+<body class="cuerpo">
+  <div class="titulo">
+    <p class="titulo-texto">Detalles del Producto</p>
+  </div>
+
+  <div class="container" style="margin-bottom: 110px;">
+    <div class="row justify-content-center">
+
+      <div class="col-sm-5">
+        <div class="card" style="border-radius: 30px; padding: 1rem 1rem; border: 3px #E38B29 solid;">
+          <div class="card-body">
+            <p class="card-title p-titulo">@Html.DisplayFor(model => model.Name)</p><br>
+            <h5 class="p-texto">Descripción:</h5>
+            <p class="card-text p-respuesta">@Html.DisplayFor(model => model.Descripcion)</p>
+            <hr class="linea">
+            <h5 class="p-texto">Precio del Producto:</h5>
+            <p class="card-text p-respuesta">S/. @Html.DisplayFor(model => model.Precio)</p>
+            <hr class="linea">
+            <h5 class="p-texto">Stock:</h5>
+            <p class="card-text p-respuesta">Disponible</p>
+            <hr class="linea">
+            <div class="d-grid gap-2">
+              <a class="btn" id="boton" asp-action="Add" asp-route-id="@Model.Id"><strong>Añadir al Carrito
+                  <i class="fa-sharp fa-solid fa-cart-shopping"></i></strong></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <img class="imagen" src="/images/@Html.DisplayFor(model => model.ImageName)"
+          alt="@Html.DisplayFor(model => model.ImageName)"/>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script src="https://kit.fontawesome.com/42be4397d3.js" crossorigin="anonymous"></script>
+
+</html>
